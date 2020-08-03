@@ -27,7 +27,7 @@
 #### @todo files-folders-update.sh
 #### @todo restrict-sftp-users-to-home-folder.sh
 #### @todo tools-snippets.TODO
-#### <a href="/snippets/devops/screen/" title="screen" target="_blank">Screen<a>
+#### <a href="/snippets/devops/screen" title="screen" target="_blank">Screen<a>
 ### @todo php
 #### @todo CMS
 ##### @todo Drupal

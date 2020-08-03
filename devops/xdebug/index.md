@@ -1,4 +1,4 @@
-php-xdebug
+#### <a href="/snippets/devops/xdebug/#php-xdebug-console-confgiguration">php-xdebug console debugging</a>
 ````bash
 sudo touch php-xdebug
 sudo vim php-xdebug
@@ -103,7 +103,7 @@ xdebug.remote_handler="dbgp"
 xdebug.remote_port=9000
 ```
 
-xdebug php.ini
+#### <a href="/snippets/devops/xdebug/#xdebug-default-confgiguration">xdebug php.ini</a>
 
 ```bash
 xdebug.remote_autostart=off

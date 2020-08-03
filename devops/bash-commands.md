@@ -78,50 +78,5 @@ grep -rnw eval --exclude-dir=.git ./
 ```bash
 tail -n 3000 error_log > /home/.............../error_log
 ```
-##################################################################################################
-# DRUPAL
-##################################################################################################
 
 
-drush user-create adminuser --mail="xxx@gmail.com" --password="123"; drush user-add-role "administrator" adminuser
-
-{{ dump(_context|keys) }}
-печатает переменные в шаблоне
-
-
-## D8 deploy scenario "without changes in the database"
-
-## Dump production database
-drush sql-dump --gzip > ./tmp/db_dump_before_update.sql.
-drush sset system.maintenance_mode 1
-git pull origin master
-composer install
-drush updb
-drush cr
-# Enable module "API v2"
-drush en api_v2
-drush sset system.maintenance_mode 0
-
-## D8 deploy scenario "import the configuration on a different site"
-# get UUID on the source site
-drush config-get "system.site" uuid
-drush config-export --destination config-export
-
-# set UUID on the destination site
-drush config-set "system.site" uuid "fjfj34-e3bb-2ab8-4d21-9100-b5etgetgd99d5"
-drush config-import --source config-export
-
-
-##################################################################################################
-# WordPress Security
-##################################################################################################
-
-zgrep 'xx.xx.xx.194' *.gz | awk '{print $7;}' | grep '.php'
-
-ps -ef | grep myProcessName | grep -v grep | awk '{print $2}' | xargs kill -9
-
-ps -A
-
-
-ps -ef | grep php-xdebug | grep -v grep | awk '{print $2}' | xargs kill -9
-ps -ef | grep /home/dev/www/.../S3_upload.php | grep -v grep | awk '{print $2}' | xargs kill -9
