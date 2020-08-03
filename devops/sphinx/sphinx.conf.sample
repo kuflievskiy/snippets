@@ -1,0 +1,92 @@
+source src_base
+{
+  type          = mysql
+  sql_host      = localhost
+  sql_user      = root
+  sql_pass      =
+  sql_db        = prod_database
+  sql_port      = 3306
+}
+
+# title
+source title : src_base
+{
+  sql_query     = \
+  SELECT wp.ID, wp.post_title \
+  FROM wp_posts wp
+
+  sql_field_string = post_title
+}
+index title
+{
+  source            = title
+  path              = /var/lib/sphinxsearch/data/title
+}
+
+# subtitle
+source subtitle : src_base {
+  sql_query     = \
+  SELECT wp.ID \
+  , wp.post_title \
+  , wptbf.Subtitle as Subtitle \
+  FROM wp_posts wp \
+  LEFT JOIN wp_post_type_book_fields wptbf ON wp.ID = wptbf.entity_id
+
+  sql_field_string = Subtitle
+}
+index subtitle
+{
+  source            = subtitle
+  path              = /var/lib/sphinxsearch/data/subtitle
+}
+
+# content
+source content : src_base {
+  sql_query     = \
+  SELECT wp.ID, wp.post_content as content \
+  FROM wp_posts wp \
+  WHERE post_content <> ''
+
+  sql_field_string = content
+}
+index content
+{
+  source            = content
+  path              = /var/lib/sphinxsearch/data/content
+}
+
+# keyword
+source keyword : src_base {
+  sql_query     = \
+    SELECT p.ID, t.name as keyword \
+    FROM wp_posts AS p \
+    INNER JOIN wp_term_relationships AS tr ON (p.ID = tr.object_id) \
+    INNER JOIN wp_term_taxonomy AS tt ON (tr.term_taxonomy_id = tt.term_taxonomy_id) \
+    INNER JOIN wp_terms AS t ON (t.term_id = tt.term_id) \
+    WHERE p.post_status = 'publish' \
+      AND p.post_type = 'book' \
+      AND tt.taxonomy = 'book_keyword';
+
+  sql_field_string = keyword
+}
+index keyword
+{
+  source            = keyword
+  path              = /var/lib/sphinxsearch/data/keyword
+}
+
+# searchd
+searchd
+{
+  listen            = 9312
+  listen            = 9306:mysql41
+  log               = /var/log/sphinxsearch/searchd.log
+  query_log         = /var/log/sphinxsearch/query.log
+  read_timeout      = 5
+  max_children      = 30
+  pid_file          = /var/run/sphinxsearch/searchd.pid
+  seamless_rotate   = 1
+  preopen_indexes   = 1
+  unlink_old        = 1
+  binlog_path       = /var/lib/sphinxsearch/data
+}

@@ -1,0 +1,37 @@
+{
+  "name": "my-project-name",
+  "description": "test project description",
+  "homepage": "",
+  "author": {
+    "name": "Kuflievskiy Aleksey",
+    "url": "https://github.com/kuflievskiy"
+  },
+  "contributors": {
+    "name": "Kuflievskiy Aleksey",
+    "email": "kuflievskiy@gmail.com",
+    "url": "https://github.com/kuflievskiy"
+  },
+  "keywords": [
+    "gruntplugin",
+    "console",
+    "log",
+    "debugging",
+    "remove",
+    "statements"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kuflievskiy/"
+  },
+  "bugs": {
+    "url": "https://github.com/kuflievskiy/...../issues"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-remove-logging": "latest"
+  }
+}

@@ -1,0 +1,19 @@
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?yourdomain\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^$
+RewriteRule .*\.(jpg|gif|bmp|png)$ /images/dontsteal.jpg [L]
+
+
+Images linked to from anywhere else than your website are redirected to a custom graphic. Do note though, that this would affect people reading posts through RSS readers as well.
+
+Also allow search engines
+
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?mydomain\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?google\.(.+)/ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?(.*\.)?google\.(.+)/ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?bing\.(.+)/ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?(.*\.)?bing\.(.+)/ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?yahoo\.(.+)/ [NC]
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?(.*\.)?yahoo\.(.+)/ [NC]
+RewriteCond %{HTTP_REFERER} !^$
+RewriteRule .*\.(jpe?g|gif|png)$ /transparent.gif [L]

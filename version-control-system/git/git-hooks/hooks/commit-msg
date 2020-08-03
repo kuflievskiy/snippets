@@ -1,0 +1,51 @@
+#!/usr/bin/env php
+<?php
+define('ERR_NO_REQUIRED_KEYWORD', 'ERROR : Please relate your commit to any issue ( use one of these keywords : issue,close,closesclosed,fix,fixes,fixed,resolve,resolves,resolved )');
+# Function commit_message_check
+# This function is used to check if commit message contains any required keywords
+# see @link https://help.github.com/articles/closing-issues-via-commit-messages/
+# @param $commit_message
+# @author : Kuflievskiy Aleksey <kuflievskiy@gmail.com>
+# @version 0.0.1
+#
+# Plans for future, add more validation rules :
+# @todo : Separate subject from body with a blank line
+# @todo : Limit the subject line to 50 characters
+# @todo : Capitalize the subject line
+# @todo : Do not end the subject line with a period
+#
+function commit_message_check( $commit_message ) {
+    $internal_encoding = mb_internal_encoding();
+    mb_internal_encoding( 'utf-8' );
+    $errors = [];
+    $required_keywords = [
+	'issue',
+	'close',
+	'closes',
+	'closed',
+	'fix',
+	'fixes',
+	'fixed',
+	'resolve',
+	'resolves',
+	'resolved',
+	'hotfix', // custom
+    ];
+    $is_any_keyword_used = false;
+    foreach( $required_keywords as $required_keyword ) {
+       if ( false !== strpos( $commit_message, $required_keyword ) ) {
+          $is_any_keyword_used = true;
+       }
+    }
+    if ( false == $is_any_keyword_used ) {
+      $errors[ERR_NO_REQUIRED_KEYWORD] = 1;
+    }
+    mb_internal_encoding( $internal_encoding );
+    return $errors;
+}
+$errors = commit_message_check( file_get_contents( $argv[1] ) );
+if ( count( $errors ) !== 0 ) {
+    print sprintf( '%s%s', implode( PHP_EOL, array_keys( $errors ) ), PHP_EOL )
+    and exit(1);
+}
+exit(0);

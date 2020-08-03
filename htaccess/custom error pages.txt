@@ -1,0 +1,9 @@
+ErrorDocument 400 /errors/badrequest.html
+ErrorDocument 401 /errors/authreqd.html
+ErrorDocument 403 /errors/forbid.html
+ErrorDocument 404 /errors/notfound.html
+ErrorDocument 500 /errors/serverr.html
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?qumatech\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^$
+RewriteRule .*\.(jpg|gif|bmp|png)$ /images/dontsteal.gif [L]

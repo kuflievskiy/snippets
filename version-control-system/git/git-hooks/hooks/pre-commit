@@ -1,0 +1,134 @@
+#!/bin/bash
+
+#
+# Configs
+#
+debug_functions=( "print_r" "var_dump" "console.log" "debugger")
+
+#
+# Color Definitions
+#
+red=`tput setaf 1`
+green=`tput setaf 2`
+yellow=`tput setaf 3`
+blue=`tput setaf 4`
+magenta=`tput setaf 5`
+cyan=`tput setaf 6`
+reset=`tput sgr0`
+
+#
+# error variable
+# 
+error_found=false
+
+for file in $(git diff --cached --name-only); do
+	#
+	# Test for debug calls
+	#
+	for (( i=0; i<${#debug_functions[@]}; i++ )); do
+		if [ $file != "git/hooks/pre-commit" ] ; then
+			if [ -e $file ] ; then
+				grep "${debug_functions[$i]}" $file | grep -vq "//"
+				if [ $? -ne 1 ] ; then
+					echo "${red}EPIC FAILURE${reset}: You left a ${yellow}${debug_functions[$i]}${reset} in ${yellow}$file${reset}"
+					error_found=true
+				fi
+			fi
+		fi
+	done
+	
+	#
+	#
+	#
+		
+done
+
+increment_version ()
+{
+  declare -a part=( ${1//\./ } )
+  declare    new
+  declare -i carry=1
+
+  for (( CNTR=${#part[@]}-1; CNTR>=0; CNTR-=1 )); do
+	len=${#part[CNTR]}
+	new=$((part[CNTR]+carry))
+	[ ${#new} -gt $len ] && carry=1 || carry=0
+	[ $CNTR -gt 0 ] && part[CNTR]=${new: -len} || part[CNTR]=${new}
+  done
+  new="${part[*]}"
+  echo "${new// /.}"
+} 
+
+#read version < "version.md"
+#newVersion=$(increment_version $version )
+#echo "$newVersion" > "version.md"
+#git add "version.md"
+
+phpcs -v --standard=phpcs.ruleset.xml --extensions=php --report=source --error-severity=1 --warning-severity=8 ./wp-content/themes/pmtsystem/
+
+if [ $? != 0 ]
+then
+    error_found=true
+fi
+
+if $error_found ; then
+	echo ""
+	echo "                                  \$\$\$"
+	echo "             \$\$\$\$\$,        .:<X!!UW\$\$\$\$\$\$bo.         ,\$\$\$\$"
+	echo "               '\$\$\$\$   .:!!!!!XQ\$\$\$\$\$\$\$\$\$\$\$\$\$e.    ,\$\$\$\$'"
+	echo "                 '\$\$\$ .!!!XXXM\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$. \$\$\$\$'"
+	echo "                   \$.!!!!!!M68\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$. '\$"
+	echo "                   .!!!!!!RMW\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$."
+	echo "                   !!!!!?!MM9\$N\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$"
+	echo "                  :!!! !!HMH@\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$ \$\$\$"
+	echo "                   !! J\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$ \$\$"
+	echo "                   '! \$'        '\$^^\$'         '\$ \$'"
+	echo "                    .\$   (0)    !'  '!    (0)    \$."
+	echo "                   :\$\$,       ..! || !..        .\$\$:"
+	echo "                     \$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$"
+	echo "                      \$\$^^^^^\$\$\$\$\$\$\$\$\$\$\$\$\$^^^^^\$\$"
+	echo "                     .  :\$\$ :|m|#|m|~|#|#|: \$\$: ."
+	echo "                   ,\$\$\$ '\$\$.:|#|w|#|#|w|#|;.\$\$' \$\$\$,"
+	echo "                 ,\$\$\$'   \$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$   '\$\$\$,"
+	echo "               ,\$\$\$'      \$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$\$      '\$\$\$."
+	echo "             \$\$\$\$'          ~~~~~~   ~~~~~~          '\$\$\$\$"
+	echo ""
+	echo "                       Files were not committed"
+	echo ""
+	exit 1
+else
+	echo ""
+	echo "                          âââââââââââââââââââââââââ"
+	echo "                        âââââââââââââââââââââââââââââ"
+	echo "                      ââââââââââââââââââââââââââââââââ"
+	echo "                     ââââââââââââââââââââââââââââââââââ"
+	echo "                     ââââââââââââââââââââââââââââââââââ"
+	echo "               ââââââââââââââââââââââââââââââââââââââââ"
+	echo "              âââââââââââââââââââââââââââââââââââââââââ"
+ 	echo "             âââââââââââââââââââââââââââââââââââââââââ"
+	echo "                âââââââââââââââââââââââââââââââââââââââ"
+	echo "                  ââââââââââââââââââââââââââââââââââââââââââ"
+	echo "                   ââââââââââââââ                 ââââââââââ"
+	echo "                  ââââââââ                         âââââââ"
+	echo "                   âââââ      âââ          ââ       âââââ"
+	echo "                     âââ                            âââ"
+	echo "                      ââ           ââ ââ           ââââ"
+	echo "                     âââ       ââââââââââââ       ââââ"
+	echo "                      âââ ââââââââââââââââââââââââââââ"
+	echo "                     âââââââââââââââââââââââââââââââââ"
+	echo "                       ââââââââââââââââââââââââââââââ"
+	echo "                      ââââââââââââââââââââââââââââââ"
+	echo "                       âââââââââââââââââââââââââââââ"
+	echo "                        ââ âââââââââââââââââââââââââ"
+	echo "                         â âââââââââââââââââââââ ââ"
+	echo "                             ââââââââââââââââââ"
+	echo "                              âââ  ââââââ  âââ"
+	echo "                                     âââ   ââ"
+	echo "                    _    _ _                         _ _"
+	echo "                   / \  | | |   __ _  ___   ___   __| | |"
+	echo "                  / _ \ | | |  / _` |/ _ \ / _ \ / _` | |"
+	echo "                 / ___ \| | | | (_| | (_) | (_) | (_| |_|"
+	echo "                /_/   \_\_|_|  \__, |\___/ \___/ \__,_(_)"
+	echo "                               |___/	"
+	exit 0
+fi

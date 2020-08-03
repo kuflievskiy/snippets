@@ -1,0 +1,12 @@
+#Redirect permanent /wp-login.php  http://taxicola.com/sign-in/
+Redirect 301 /index.php/transportation http://comgruz.ru/transportation
+
+redirect 302?
+Redirect (.*) http://modernecommunications.com/moderne-promotions/
+
+
+http://www.htaccessredirect.net/
+
+
+
+
