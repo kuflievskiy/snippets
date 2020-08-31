@@ -1,8 +1,7 @@
 
-##################################################################################################
 # Docker
-##################################################################################################
 
+```bash
 # how to install Docker
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-getting-started
 
@@ -34,9 +33,7 @@ sudo docker rm $(sudo docker ps -a -q)
 
 # TODO : https://serversforhackers.com/getting-started-with-docker
 
-
 sudo docker rm $(sudo docker stop $(sudo docker ps -a -q))
-
 
 #### https://hub.docker.com/r/davert/selenium-env/
 
@@ -70,5 +67,7 @@ docker run -i -t -p 4444:4444 -e APP_PORT=8000 davert/phantomjs-env
 # Accessing Local Website by Host
 docker run -i -t -p 4444:4444 -e APP_HOST=myapp davert/phantomjs-env
 
-@url https://stackoverrun.com/ru/q/10891472
-When you mount a folder from host to container, the host folder content prevails and you won't see container folders that were created **before** the mounting.
+# @url https://stackoverrun.com/ru/q/10891472
+# When you mount a folder from host to container, the host folder content prevails and you won't see container folders that were created **before** the mounting.
+
+```
