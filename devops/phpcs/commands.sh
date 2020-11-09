@@ -60,3 +60,27 @@ vendor/bin/phpcbf \
          --warning-severity=8 \
          --error-severity=1 \
          ./wp-content/themes/some-file-path/file.php
+
+
+# https://github.com/squizlabs/PHP_CodeSniffer
+composer global require "squizlabs/php_codesniffer=*"
+
+# https://github.com/PHPCompatibility/PHPCompatibility
+# TBD https://github.com/PHPCompatibility/PHPCompatibilityAll
+
+composer require "squizlabs/php_codesniffer=*" --dev
+composer require "phpcompatibility/php-compatibility" --dev
+./vendor/bin/phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility
+./vendor/bin/phpcs -i
+
+# PHPCompatibility
+# @link https://github.com/PHPCompatibility/PHPCompatibility
+./vendor/bin/phpcs --config-set installed_paths vendor/phpcompatibility/php-compatibility
+./vendor/bin/phpcs -p . \
+    --extensions=php \
+    --ignore=*/vendor/*,*wp-includes*,*wp-admin*,*xmlrpc.php*,*wp-trackback.php*,*wp-signup.php*,*wp-settings.php*,*wp-mail.php*,*wp-login.php*,*wp-load.php*,*wp-links-opml.php*,*wp-cron.php*,*wp-config-sample.php*,*wp-comments-post.php*,*wp-blog-header.php*,*wp-activate.php* \
+    --standard=PHPCompatibility \
+    --runtime-set testVersion 7.3 \
+    --report=source \
+    --warning-severity=0 --error-severity=1 \
+    --report-full=./PHPCompatibilityReport73.txt
