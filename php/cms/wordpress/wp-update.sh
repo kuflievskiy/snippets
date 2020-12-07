@@ -5,6 +5,7 @@ tar -cvzf site_backup_`date '+%Y_%m_%d'`.tar.zip --exclude="wp-update.sh" $(pwd)
 
 # download latest WordPress
 wget wordpress.org/latest.tar.gz
+wget https://wordpress.org/latest.tar.gz
 tar zxvf latest.tar.gz
 echo 'Step 1. WordPress has been successfuly downloaded and unpacked!'
 

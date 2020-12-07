@@ -1,3 +1,5 @@
+# xDebug 2 setup
+
 #### <a href="/snippets/devops/xdebug/#php-xdebug-console-confgiguration">php-xdebug console debugging</a>
 ````bash
 sudo touch php-xdebug
@@ -115,4 +117,21 @@ xdebug.profiler_enable_trigger=1
 #xdebug.profiler_output_dir=/tmp/cachegrind
 xdebug.profiler_output_dir=./xdebug-profiler
 xdebug.profiler_output_name=trace.%s____%R
+```
+
+
+# xDebug 3 setup
+
+## Upgrading from Xdebug 2 to 3
+
+https://xdebug.org/docs/upgrade_guide
+
+## Xdebug 3 Doc
+https://xdebug.org/docs/
+
+```bash
+vim /usr/local/etc/php/conf.d/xdebug.ini
+xdebug.mode=debug
+xdebug.start_with_request=yes
+xdebug.client_port=9003
 ```
