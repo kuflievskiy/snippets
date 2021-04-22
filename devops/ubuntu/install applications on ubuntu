@@ -1,0 +1,4 @@
+sudo snap install skype --classic
+sudo snap remove skype
+
+sudo apt install telegram-desktop
