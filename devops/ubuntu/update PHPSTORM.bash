@@ -29,3 +29,12 @@ https://askubuntu.com/questions/800498/updating-php-storm-leads-to-a-icon
 
 ~/.local/share/applications
 /usr/share/applications/jetbrains-phpstorm.desktop
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/etc/phpstorm/bin/phpstorm.sh
+Name=PhpStorm
+Comment=PhpStorm
+Icon=/etc/phpstorm/bin/phpstorm.png
