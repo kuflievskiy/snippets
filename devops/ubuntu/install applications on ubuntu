@@ -2,3 +2,4 @@ sudo snap install skype --classic
 sudo snap remove skype
 
 sudo apt install telegram-desktop
+sudo apt install  telegram-cli telegram-purple
