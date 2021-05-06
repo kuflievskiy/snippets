@@ -38,3 +38,7 @@ Exec=/etc/phpstorm/bin/phpstorm.sh
 Name=PhpStorm
 Comment=PhpStorm
 Icon=/etc/phpstorm/bin/phpstorm.png
+
+# PhpStorm update on Ubuntu
+# PhpStorm does not have write access to /etc/phpstorm. Please run it by a privileged user to update.
+sudo chown -R kuflievsky /etc/phpstorm
