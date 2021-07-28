@@ -132,6 +132,6 @@ https://xdebug.org/docs/
 ```bash
 vim /usr/local/etc/php/conf.d/xdebug.ini
 xdebug.mode=debug
-xdebug.start_with_request=yes
+xdebug.start_with_request=trigger
 xdebug.client_port=9003
 ```
