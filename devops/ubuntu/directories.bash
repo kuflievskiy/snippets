@@ -40,6 +40,10 @@ umask 0002
 ~/.profile
 umask 0022
 
+# global bash file
+/etc/profile
+/etc/profile.d/umask-setting-to-all.sh
+
 
 
 sudo
