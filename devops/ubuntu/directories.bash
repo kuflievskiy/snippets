@@ -37,3 +37,6 @@ numeric mode    7    5     5
 umask
 sudo
 /etc/sudoers
+
+
+ls -la /etc/passwd | cut -d' ' -f3 | xargs
