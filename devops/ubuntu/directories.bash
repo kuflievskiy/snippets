@@ -34,9 +34,23 @@ numeric mode    7    5     5
 /etc/group
 /etc/shadow
 
-umask
+umask 
+umask 0002
+# create folder 775
+~/.profile
+umask 0022
+
+
+
 sudo
 /etc/sudoers
 
 
 ls -la /etc/passwd | cut -d' ' -f3 | xargs
+
+# dev server setup
+664
+add all users to the www-data group.
+www-data:www-data
+
+
