@@ -57,4 +57,22 @@ ls -la /etc/passwd | cut -d' ' -f3 | xargs
 add all users to the www-data group.
 www-data:www-data
 
+# /etc/apache2/envvars
+export APACHE_RUN_USER=www-data
+export APACHE_RUN_GROUP=www-data
 
+
+# commands and utilites
+passwd
+sudo passwd <username>
+
+sudo adduser <username>
+sudo adduser <username> sudo
+sudo deluser <username>
+
+sudo -sHu <username> # change user
+su <username> # change user, enter his passwrd
+
+sudo chown <username>:<group> ./<file-folder-name>
+
+chmod 755 ./<file-folder-name>
