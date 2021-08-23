@@ -1,0 +1,8 @@
+Press Ctrl+Alt+Shift+R to start recording what is on your screen.
+
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0
+
+Make a screencast
+
+https://help.ubuntu.com/stable/ubuntu-help/screen-shot-record.html
