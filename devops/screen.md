@@ -1,3 +1,4 @@
+```bash
 screen -R
 
 screen -S mainSessionName
@@ -25,3 +26,4 @@ Ctrl+A c
 
 # close the window
 Ctrl+A X 
+```
