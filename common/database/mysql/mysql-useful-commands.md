@@ -1,3 +1,4 @@
+```
 mysql --verbose -u cms -p'DB_PASSWORD' -e "DROP DATABASE DB_NAME;"
 mysql --verbose -u cms -p'DB_PASSWORD' -e "CREATE DATABASE DB_NAME;"
 mysql --verbose -u cms -p'DB_PASSWORD' DB_NAME < db_dump_DB_NAME.sql
@@ -76,3 +77,6 @@ INNER JOIN (
 AND temp.city = u.city
 AND temp.zip = u.zip
 ORDER BY street_address, city, zip, id DESC
+
+
+```
