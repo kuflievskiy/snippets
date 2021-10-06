@@ -1,0 +1,33 @@
+vim /etc/vim/vimrc
+
+touch ~/.vimrc
+vim ~/.vimrc
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" line numbers
+set number
+
+" Enable Syntax Highlighting
+syntax on
+ 
+" default, blue, darkblue, delek, desert, elford, evening, industry, koehler, morning, murphy, pablo, peachpuff, ron, shine, slate, torte, zellner
+colorscheme pablo
+
+" Setting Tab Size
+set tabstop=4
+
+" Enabling Automatic Indentation
+set autoindent
+
+" Replacing Tabs with White Spaces
+set expandtab
+
+" Removing Multiple Spaces on Single Backspace
+set softtabstop=4
+
+" Highlight the Current Line
+set cursorline
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" http://vimdoc.sourceforge.net/
