@@ -1,0 +1,17 @@
+# Make a screenshot
+
+- "Print Screen" to take a screenshot of the desktop.
+- "Alt+Print Screen" to take a screenshot of a window.
+- "Shift+Print Screen" to take a screenshot of an area you select.
+
+# Make a screencast
+
+- Press "Ctrl+Alt+Shift+R" to start recording what is on your screen.
+- Once you have finished, press "Ctrl+Alt+Shift+R" again to stop the recording.
+
+The video is automatically saved in your Videos folder in your home folder, 
+with a file name that starts with Screencast and includes the date and time it was taken.
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0
+
+https://help.ubuntu.com/stable/ubuntu-help/screen-shot-record.html
