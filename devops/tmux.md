@@ -31,3 +31,20 @@ CTRL+B t
 
 # kill all tmux
 killall tmux
+
+########################################################
+# Tmux configuration
+########################################################
+https://github.com/gpakosz/.tmux
+# cd ~
+# git clone https://github.com/gpakosz/.tmux.git
+#
+# -s, --symbolic : make symbolic links instead of hard links
+# -f, --force : remove existing destination files
+# ln -s -f .tmux/.tmux.conf
+#
+# cp .tmux/.tmux.conf.local .
+#
+
+# source .tmux/.tmux.conf (reload configuration)
+CTRL+B r
