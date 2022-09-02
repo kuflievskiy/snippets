@@ -1,14 +1,47 @@
 #
-#
+# macos
 brew install macvim --override-system-vim
+# ubuntu
+apt-get update & apt-get install vim -y
 
 vim /etc/vim/vimrc
 
 touch ~/.vimrc
 vim ~/.vimrc
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+--------------------------------------------------------------------------------------------------------------
+u undone
+10u undone 10 times
+
+y yank
+p insert line above the cursor
+P insert line below the cursor
+dd delete line
+]] go to the beginning
+[[ go to the end
+--------------------------------------------------------------------------------------------------------------
+# search for word
+/something
+
+# delete whole file
+:%d
+
+# Search & replace
+#
+# S: stands for substitute
+# search_term: the word you want to search and replace
+# replace_term: the word with which you want to replace it with
+# Option: c (for confirmation), g (replace all occurrence in one line), i (for ignoring the case)
+#
+:%s/search_term/replace_term/g
+
+# replace with confirmation (c)
+:%s/find/replace/c
+
+
+# go to line #10
+:10
+-------------------------------------------------------------------------------------------------------------
 " line numbers
 set number
 
@@ -32,8 +65,7 @@ set softtabstop=4
 
 " Highlight the Current Line
 set cursorline
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+-------------------------------------------------------------------------------------------------------------
 " http://vimdoc.sourceforge.net/
 
 TODO https://github.com/nicknisi/vim-workshop
@@ -43,6 +75,8 @@ TODO https://github.com/nicknisi/vim-workshop
 # h     j   k    l
 # left  up  down right
 #
+-------------------------------------------------------------------------------------------------------------
+# ^ is a "control" button
 
 ^E - scroll the window down
 ^Y - scroll the window up
@@ -53,6 +87,14 @@ M - move cursor to the middle of the window
 L - move cursor to the bottom of the window
 gg - go to top of file
 G - go to bottom of file
+-------------------------------------------------------------------------------------------------------------
+#
+# Structure of an Editing Command
+#   <number><command><text object or motion>
+-------------------------------------------------------------------------------------------------------------
+3dap
+
+# delete 3 paragraphs.
 
 # text objects
 w - words
@@ -73,8 +115,6 @@ c - change (delete, then place in insert mode)
 y - yank (copy)
 v - visually select
 
-{command}{text object or motion}
-
 diw
 # delete in word
 caw
@@ -84,14 +124,29 @@ yi)
 va"
 # visually select all inside doublequotes
 
+df)
+# delete till the `)`
+
+dat
+# delete all tag
+
+dit
+# delete inside tag
+
 # Repetition. The DOT command
 .
+--------------------------------------------------------------------------------------------------------------
+# Macros
 
-# Search & replace
-#
-# S: stands for substitute
-# search_term: the word you want to search and replace
-# replace_term: the word with which you want to replace it with
-# Option: c (for confirmation), g (replace all occurrence in one line), i (for ignoring the case)
-#
-:%s/search_term/replace_term/g
+# Start recording
+q<lowercased button to name the macros>
+# Perform Vim actions
+:registers
+# Stop recording
+q
+--------------------------------------------------------------------------------------------------------------
+# phpstorm vim plugin
+https://plugins.jetbrains.com/plugin/164-ideavim
+IdeaVim supports many Vim features including normal/insert/visual modes, motion keys, deletion/changing, marks, registers, some Ex commands, Vim regexps, configuration via ~/.ideavimrc, macros, Vim plugins, etc.
+
+

@@ -1,3 +1,8 @@
+# install
+apt-get install screen -y
+screen --version
+Screen version 4.00.03 (FAU) 23-Oct-06
+
 screen -R
 
 screen -S mainSessionName

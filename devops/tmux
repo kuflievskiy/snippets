@@ -1,6 +1,8 @@
 # install tmux
-brew install tmux          # on mac
-sudo apt-get install tmux  # on debian
+# on mac
+brew install tmux
+# on debian
+sudo apt-get install tmux
 
 # run it
 tmux
@@ -34,10 +36,12 @@ CTRL+B &
 # show time
 CTRL+B t
 
+# mouse, resize the splitted frames
+CTRL+B m
+
 # kill all tmux
 killall tmux
 
-########################################################
 # Tmux configuration
 ########################################################
 https://github.com/gpakosz/.tmux
