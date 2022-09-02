@@ -4,6 +4,11 @@ sudo apt-get install tmux  # on debian
 
 # run it
 tmux
+# start with named session
+tmux new-session -s {session-name}
+
+# rename the window-name in the session, if you're already in it:)
+CTRL+B ,
 
 # split the screen vertically using this shortcut
 CTRL+B %

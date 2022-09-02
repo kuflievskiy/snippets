@@ -1,3 +1,7 @@
+#
+#
+brew install macvim --override-system-vim
+
 vim /etc/vim/vimrc
 
 touch ~/.vimrc
@@ -31,3 +35,63 @@ set cursorline
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " http://vimdoc.sourceforge.net/
+
+TODO https://github.com/nicknisi/vim-workshop
+
+
+# Dont use arrow keys
+# h     j   k    l
+# left  up  down right
+#
+
+^E - scroll the window down
+^Y - scroll the window up
+^F - scroll down one page
+^B - scroll up one page
+H - move cursor to the top of the window
+M - move cursor to the middle of the window
+L - move cursor to the bottom of the window
+gg - go to top of file
+G - go to bottom of file
+
+# text objects
+w - words
+s - sentences
+p - paragraphs
+t - tags1
+
+# Motions
+a- all
+i - in
+t - 'til
+f - find forward
+F - find backward
+
+# Commands
+d - delete (also cut)
+c - change (delete, then place in insert mode)
+y - yank (copy)
+v - visually select
+
+{command}{text object or motion}
+
+diw
+# delete in word
+caw
+# change all word
+yi)
+# yank all text inside parentheses
+va"
+# visually select all inside doublequotes
+
+# Repetition. The DOT command
+.
+
+# Search & replace
+#
+# S: stands for substitute
+# search_term: the word you want to search and replace
+# replace_term: the word with which you want to replace it with
+# Option: c (for confirmation), g (replace all occurrence in one line), i (for ignoring the case)
+#
+:%s/search_term/replace_term/g
