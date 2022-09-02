@@ -145,8 +145,7 @@ q<lowercased button to name the macros>
 # Stop recording
 q
 --------------------------------------------------------------------------------------------------------------
-# phpstorm vim plugin
+# PHPStorm IdeaVim plugin
 https://plugins.jetbrains.com/plugin/164-ideavim
-IdeaVim supports many Vim features including normal/insert/visual modes, motion keys, deletion/changing, marks, registers, some Ex commands, Vim regexps, configuration via ~/.ideavimrc, macros, Vim plugins, etc.
-
-
+# VimAwesome
+https://vimawesome.com/

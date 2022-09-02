@@ -1,3 +1,14 @@
+# https://github.com/keycastr/keycastr
 brew install --cask keycastr
 
+command + q
+# close the application
 
+command + tab
+# quick search panel
+
+command + option + d
+# hide the bottom bar
+
+command + "+"
+# increase the font size in terminal
