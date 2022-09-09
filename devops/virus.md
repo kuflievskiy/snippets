@@ -1,7 +1,4 @@
-
-https://modx.pro/security/16034
-
-https://github.com/gregzem/aibolit
+# https://github.com/gregzem/aibolit
 
 ```bash
 

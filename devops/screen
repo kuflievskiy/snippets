@@ -12,7 +12,7 @@ Ctrl+A d
 
 screen -ls
 
-# reatach the `mainSessionName`
+# re-attach the `mainSessionName`
 screen -r 268143.mainSessionName
 
 # split window horizontally

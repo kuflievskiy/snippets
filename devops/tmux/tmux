@@ -1,11 +1,18 @@
-# install tmux
+##
+## install tmux
+##
+
 # on mac
 brew install tmux
 # on debian
 sudo apt-get install tmux
 
-# run it
+##
+## run it
+##
+
 tmux
+
 # start with named session
 tmux new-session -s {session-name}
 
@@ -27,33 +34,52 @@ CTRL+B+c
 # detach
 CTRL+B d
 
+# show list of available sessions
+
 tmux list-sessions
+
+# attach to some certain tmux session
+
 tmux attach-session -t 0
 
 # kill window
-CTRL+B & 
+
+CTRL+B &
 
 # show time
+
 CTRL+B t
 
-# mouse, resize the splitted frames
+# mouse, resize the frames
+
 CTRL+B m
 
-# kill all tmux
+# kill all tmux processes
+
 killall tmux
 
-# Tmux configuration
-########################################################
-https://github.com/gpakosz/.tmux
-# cd ~
-# git clone https://github.com/gpakosz/.tmux.git
+##
+## Tmux configuration
+## https://github.com/gpakosz/.tmux
+##
+
+cd ~
+git clone https://github.com/gpakosz/.tmux.git
+
+ln -s -f .tmux/.tmux.conf
+ln -s -f .tmux/.tmux.conf .tmux.conf
+
+# ln -s -f ORIGINAL_FILE LINK_TO_THE_FILE
 #
+# create a symbolic link: .tmux.conf now points to .tmux/.tmux.conf
 # -s, --symbolic : make symbolic links instead of hard links
 # -f, --force : remove existing destination files
-# ln -s -f .tmux/.tmux.conf
-#
-# cp .tmux/.tmux.conf.local .
-#
 
-# source .tmux/.tmux.conf (reload configuration)
+cp .tmux/.tmux.conf.local .
+
+# reload configuration
+
+source .tmux/.tmux.conf
+
+# source ~/.tmux.conf from tmux
 CTRL+B r

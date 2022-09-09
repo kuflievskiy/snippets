@@ -1,15 +1,37 @@
-#
+##
+## Installation
+##
+
 # macos
 brew install macvim --override-system-vim
 # ubuntu
 apt-get update & apt-get install vim -y
 
-vim /etc/vim/vimrc
+##
+## vim configuration
+##
 
+vim /etc/vim/vimrc
 touch ~/.vimrc
 vim ~/.vimrc
 
---------------------------------------------------------------------------------------------------------------
+##
+## How to exit from vim, save file
+##
+
+# to start command type shift + ":"
+:wq!
+# w write
+# q quite
+# w! is useful to override read-only mode (vim -R filename)
+
+vim
+:w ~/Downloads/test.txt
+
+##
+## Commands
+###
+
 u undone
 10u undone 10 times
 
@@ -19,12 +41,13 @@ P insert line below the cursor
 dd delete line
 ]] go to the beginning
 [[ go to the end
---------------------------------------------------------------------------------------------------------------
+
+##
+## Search
+##
+
 # search for word
 /something
-
-# delete whole file
-:%d
 
 # Search & replace
 #
@@ -39,37 +62,14 @@ dd delete line
 :%s/find/replace/c
 
 
+# delete whole file
+:%d
 # go to line #10
 :10
--------------------------------------------------------------------------------------------------------------
-" line numbers
-set number
+#
 
-" Enable Syntax Highlighting
-syntax on
- 
-" default, blue, darkblue, delek, desert, elford, evening, industry, koehler, morning, murphy, pablo, peachpuff, ron, shine, slate, torte, zellner
-colorscheme pablo
-
-" Setting Tab Size
-set tabstop=4
-
-" Enabling Automatic Indentation
-set autoindent
-
-" Replacing Tabs with White Spaces
-set expandtab
-
-" Removing Multiple Spaces on Single Backspace
-set softtabstop=4
-
-" Highlight the Current Line
-set cursorline
--------------------------------------------------------------------------------------------------------------
-" http://vimdoc.sourceforge.net/
-
-TODO https://github.com/nicknisi/vim-workshop
-
+# yank whole file
+:%y
 
 # Dont use arrow keys
 # h     j   k    l
@@ -135,8 +135,9 @@ dit
 
 # Repetition. The DOT command
 .
---------------------------------------------------------------------------------------------------------------
-# Macros
+##
+## Macros
+##
 
 # Start recording
 q<lowercased button to name the macros>
@@ -144,8 +145,12 @@ q<lowercased button to name the macros>
 :registers
 # Stop recording
 q
---------------------------------------------------------------------------------------------------------------
-# PHPStorm IdeaVim plugin
+
+##
+## Links
+##
+
 https://plugins.jetbrains.com/plugin/164-ideavim
-# VimAwesome
 https://vimawesome.com/
+http://vimdoc.sourceforge.net/
+https://github.com/nicknisi/vim-workshop
