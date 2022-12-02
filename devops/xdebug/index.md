@@ -135,3 +135,22 @@ xdebug.mode=debug
 xdebug.start_with_request=trigger
 xdebug.client_port=9003
 ```
+ 
+ sudo vim /etc/php/7.4/mods-available/xdebug.ini
+ sudo service php7.4-fpm restart
+ 
+ ```
+ zend_extension=xdebug.so
+
+
+xdebug.mode=debug,profile
+xdebug.start_with_request=trigger.
+xdebug.output_dir=./xdebug-profiler
+xdebug.profiler_output_name=trace.%s____%Ri
+
+xdebug.idekey=PHPSTORM
+xdebug.start_with_request=trigger
+
+xdebug.log=/tmp/xdebug.log
+                                
+```
