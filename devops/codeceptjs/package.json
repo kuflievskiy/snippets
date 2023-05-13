@@ -1,7 +1,7 @@
 {
  "name": "codeceptjs_test",
  "dependencies": {
-  "codeceptjs": "^2.0.8",
+  "codeceptjs": "^2.6.11",
   "puppeteer": "^1.13.0"
  }
 }
